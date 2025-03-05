@@ -34,8 +34,8 @@ app.post('/api/chat', async (req, res) => {
     
     // 创建支持现代TLS的HTTPS agent
     const httpsAgent = new https.Agent({
-      rejectUnauthorized: true,
-      minVersion: 'TLSv1.2'
+      rejectUnauthorized: false,
+      secureProtocol: 'TLS_method'
     });
 
     // 设置请求选项
