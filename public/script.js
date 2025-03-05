@@ -46,7 +46,7 @@ async function sendMessage() {
 
     try {
         // 发送请求到后端
-        const response = await fetch('/api/chat', {
+        const response = await fetch(window.location.origin + '/api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
