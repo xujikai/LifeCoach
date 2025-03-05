@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const fetch = require('node-fetch');
-const https = require('https');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -32,15 +31,8 @@ app.post('/api/chat', async (req, res) => {
     // 添加系统预设消息
     const fullMessages = [SYSTEM_MESSAGE, ...messages];
     
-    // 创建支持现代TLS的HTTPS agent
-    const httpsAgent = new https.Agent({
-      rejectUnauthorized: false,
-      secureProtocol: 'TLS_method'
-    });
-
     // 设置请求选项
     const response = await fetch(API_URL, {
-      agent: httpsAgent,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
