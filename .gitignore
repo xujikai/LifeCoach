@@ -1,0 +1,17 @@
+# 环境变量文件
+.env
+
+# Node.js
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# 日志文件
+logs/
+*.log
+
+# 操作系统
+.DS_Store
+Thumbs.db

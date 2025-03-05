@@ -1,0 +1,16 @@
+{
+  "name": "deepseek-r1-life-coach",
+  "version": "1.0.0",
+  "description": "基于火山方舟 DeepSeek R1 API 开发的个人成长助手",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "marked": "^15.0.7",
+    "node-fetch": "^2.7.0"
+  }
+}
