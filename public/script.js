@@ -76,15 +76,18 @@ async function sendMessage() {
 
             for (const line of lines) {
                 if (line.startsWith('data: ')) {
+                    const data = line.slice(6);
+                    if (data === '[DONE]') continue;
+
                     try {
-                        const jsonData = JSON.parse(line.slice(6));
+                        const jsonData = JSON.parse(data);
                         if (jsonData.choices && jsonData.choices[0].delta && jsonData.choices[0].delta.content) {
                             const content = jsonData.choices[0].delta.content;
                             aiResponse += content;
                             aiMessageContainer.querySelector('.message-content').innerHTML = marked.parse(aiResponse);
                         }
                     } catch (e) {
-                        // 忽略无效的JSON数据
+                        console.error('解析数据失败:', e);
                     }
                 }
             }
